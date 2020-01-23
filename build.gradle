@@ -1,0 +1,39 @@
+plugins {
+    id "com.gradle.plugin-publish" version "0.10.1"
+    id 'java-gradle-plugin'
+    id "nebula.integtest" version "7.0.5"
+    id 'maven-publish'
+}
+
+group 'com.karmanno'
+version '1.0-SNAPSHOT'
+
+gradlePlugin {
+    plugins {
+        versionsPlugin {
+            id = 'com.karmanno.plugins.versions'
+            implementationClass = 'com.karmanno.plugins.VersionsPlugin'
+        }
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}
+
+pluginBundle {
+    website = 'https://github.com/karmann-dm/cloud-platrofm-versions-plugin'
+    vcsUrl = 'https://github.com/karmann-dm/cloud-platrofm-versions-plugin'
+    description = 'Plugin for auto increase version'
+    tags = ['version', 'semver', 'cloud']
+
+    plugins {
+        versionsPlugin {
+            displayName = 'Gradle versions plugin'
+        }
+    }
+}
