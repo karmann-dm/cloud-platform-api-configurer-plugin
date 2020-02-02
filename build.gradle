@@ -26,14 +26,14 @@ dependencies {
 }
 
 pluginBundle {
-    website = 'https://github.com/karmann-dm/cloud-platrofm-versions-plugin'
-    vcsUrl = 'https://github.com/karmann-dm/cloud-platrofm-versions-plugin'
-    description = 'Plugin for auto increase version'
-    tags = ['version', 'semver', 'cloud']
+    website = 'https://github.com/karmann-dm/cloud-platform-api-configurer-plugin'
+    vcsUrl = 'https://github.com/karmann-dm/cloud-platform-api-configurer-plugin'
+    description = 'Plugin for dependency configuration for cloud-platform'
+    tags = ['api', 'dependencies', 'cloud']
 
     plugins {
         versionsPlugin {
-            displayName = 'Gradle versions plugin'
+            displayName = 'Gradle dependency plugin'
         }
     }
 }
