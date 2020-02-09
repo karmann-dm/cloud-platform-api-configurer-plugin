@@ -2,17 +2,18 @@ package com.karmanno.plugins
 
 import io.spring.gradle.dependencymanagement.DependencyManagementPlugin
 import io.spring.gradle.dependencymanagement.internal.dsl.StandardDependencyManagementExtension
-import io.spring.gradle.dependencymanagement.internal.report.DependencyManagementReportTask
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 
 class DependencyPlugin implements Plugin<Project> {
     @Override
     void apply(Project project) {
+        project.plugins.apply('java')
+        project.plugins.apply('maven-publish')
+        project.plugins.apply( 'org.springframework.boot:2.2.2.RELEASE')
         project.plugins.apply(DependencyManagementPlugin)
-        DependencyManagementReportTask task = project.tasks.getByName('dependencyManagement')
-                as DependencyManagementReportTask
-        task.extensions.getByType(
+
+        project.extensions.getByType(
                 StandardDependencyManagementExtension
         ).with {
             imports {
