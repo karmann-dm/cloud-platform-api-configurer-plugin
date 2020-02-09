@@ -4,13 +4,14 @@ import io.spring.gradle.dependencymanagement.DependencyManagementPlugin
 import io.spring.gradle.dependencymanagement.internal.dsl.StandardDependencyManagementExtension
 import org.gradle.api.Plugin
 import org.gradle.api.Project
+import org.springframework.boot.gradle.plugin.SpringBootPlugin
 
 class DependencyPlugin implements Plugin<Project> {
     @Override
     void apply(Project project) {
         project.plugins.apply('java')
         project.plugins.apply('maven-publish')
-        project.plugins.apply( 'org.springframework.boot:2.2.2.RELEASE')
+        project.plugins.apply(SpringBootPlugin)
         project.plugins.apply(DependencyManagementPlugin)
 
         project.extensions.getByType(
